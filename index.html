@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tijaar - Trust of Every Home</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Nunito+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom css -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              background: "#fce0d7",
+              secondary: "#fcd0be",
+              primary: "#f17363",
+              headings: "#333333",
+              text: "#333333",
+            },
+            fontFamily: {
+              heading: ["Roboto Slab", "serif"],
+              body: ["Nunito Sans", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="bg-background">
+    <!-- Top Bar -->
+    <header
+      class="hidden md:flex items-center justify-between w-full h-[42px] bg-secondary px-4 md:px-7"
+    >
+      <button class="text-headings text-sm">
+        Welcome to Tijaar - Trust of Every Home
+      </button>
+
+      <div class="flex gap-3 md:gap-6 text-xs md:text-sm">
+        <button
+          class="flex items-center gap-2 pr-4 border-r border-primary hover:text-primary transition-colors group"
+        >
+          <i
+            class="fas fa-map-marker-alt text-primary group-hover:scale-110 transition-transform"
+          ></i>
+          <p class="text-headings group-hover:text-primary transition-colors">
+            Deliver to <span class="font-semibold">423651</span>
+          </p>
+        </button>
+
+        <button
+          class="flex items-center gap-2 pr-4 border-r border-primary hover:text-primary transition-colors group"
+        >
+          <i
+            class="fas fa-shopping-cart text-primary group-hover:scale-110 transition-transform"
+          ></i>
+          <p class="text-headings group-hover:text-primary transition-colors">
+            Track your order
+          </p>
+        </button>
+
+        <button
+          class="flex items-center gap-2 hover:text-primary transition-colors group"
+        >
+          <i
+            class="fas fa-percent text-primary group-hover:scale-110 transition-transform"
+          ></i>
+          <p class="text-headings group-hover:text-primary transition-colors">
+            All Offers
+          </p>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Header -->
+    <header
+      class="sticky top-0 z-[222] flex items-center justify-between w-[100%] h-[70px] md:h-[90px] px-4 md:px-7 bg-white relative border-b border-secondary"
+    >
+      <div class="flex items-center gap-4">
+        <!-- Hamburger Button -->
+        <button id="mobileMenuButton" class="md:hidden p-2 text-primary">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+
+      <!-- Logo and Navigation -->
+      <div
+        class="flex justify-between md:flex items-center justify-between gap-4 w-[100%]"
+      >
+        <!-- Logo -->
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <img
+            src="images/logo.png"
+            alt="Tijaar Logo"
+            class="w-[100px] h-[40px]"
+          />
+        </div>
+
+        <!-- Search (Desktop only) -->
+        <div class="flex-grow max-w-[500px]">
+          <div
+            class="hidden md:flex items-center border border-secondary rounded-md px-3 py-2 w-full max-w-[507px] bg-white"
+          >
+            <i class="fas fa-search text-primary mr-2"></i>
+            <input
+              type="text"
+              placeholder="Search household essentials, groceries and more..."
+              class="flex-grow outline-none bg-white text-sm placeholder-gray-500"
+            />
+            <i class="fas fa-filter text-primary ml-2"></i>
+          </div>
+        </div>
+
+        <!-- User Actions -->
+        <div
+          class="flex items-center gap-3 md:gap-6 text-headings text-sm flex-shrink-0"
+        >
+          <div class="flex items-center gap-2 cursor-pointer">
+            <i class="fas fa-user text-primary"></i>
+            <p class="hidden sm:inline">Sign Up / Sign In</p>
+          </div>
+          <div class="flex items-center gap-2 cursor-pointer relative">
+            <a href="#" id="cartButton"
+              ><i class="fas fa-shopping-cart text-primary"></i>
+              <p class="hidden sm:inline">Cart</p>
+              <span id="cartCount" class="cart-count hidden">0</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden w-full bg-white absolute top-full left-0 border-t border-b border-secondary shadow-md z-50 rounded-b-xl"
+      >
+        <div class="p-5">
+          <!-- Search Box -->
+          <div
+            class="mb-5 flex items-center bg-white border border-primary rounded-lg px-4 py-2 shadow-sm"
+          >
+            <i class="fas fa-search text-primary w-5 mr-3"></i>
+            <input
+              type="text"
+              placeholder="Search..."
+              class="flex-grow bg-transparent text-sm text-headings placeholder-gray-500 focus:outline-none"
+            />
+          </div>
+
+          <!-- Menu Items -->
+          <div class="space-y-2">
+            <a
+              href="#"
+              class="flex items-center gap-3 px-4 py-2 text-sm font-medium text-headings hover:bg-secondary hover:text-primary rounded-lg transition duration-200"
+            >
+              <i class="fas fa-home text-primary w-5"></i>
+              <span>Home</span>
+            </a>
+            <a
+              href="#"
+              class="flex items-center gap-3 px-4 py-2 text-sm font-medium text-headings hover:bg-secondary hover:text-primary rounded-lg transition duration-200"
+            >
+              <i class="fas fa-user text-primary w-5"></i>
+              <span>Sign In</span>
+            </a>
+            <a
+              href="#"
+              class="flex items-center gap-3 px-4 py-2 text-sm font-medium text-headings hover:bg-secondary hover:text-primary rounded-lg transition duration-200"
+            >
+              <i class="fas fa-shopping-cart text-primary w-5"></i>
+              <span>Cart</span>
+            </a>
+            <a
+              href="#"
+              class="flex items-center gap-3 px-4 py-2 text-sm font-medium text-headings hover:bg-secondary hover:text-primary rounded-lg transition duration-200"
+            >
+              <i class="fas fa-truck text-primary w-5"></i>
+              <span>Track Order</span>
+            </a>
+            <a
+              href="#"
+              class="flex items-center gap-3 px-4 py-2 text-sm font-medium text-headings hover:bg-secondary hover:text-primary rounded-lg transition duration-200"
+            >
+              <i class="fas fa-tag text-primary w-5"></i>
+              <span>Offers</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative w-full mt-2">
+      <div class="container mx-auto">
+        <div class="bg-white overflow-hidden">
+          <div class="flex flex-col-reverse lg:flex-row">
+            <!-- Content Section -->
+            <div class="lg:w-1/2 p-8 lg:p-10 flex flex-col justify-center">
+              <div class="flex items-center mb-6">
+                <img
+                  src="images/urdu.png"
+                  class="w-[100px] h-[50px]"
+                  alt="Urdu Logo"
+                />
+                <div
+                  class="inline-flex items-center bg-primary bg-opacity-10 text-primary px-4 py-2 rounded-full font-semibold ml-4"
+                >
+                  <i class="fas fa-shield-alt mr-2"></i>
+                  <span class="text-2xl">ہر گھر کا اعتماد</span>
+                </div>
+              </div>
+
+              <p class="text-xl text-headings mb-8 leading-relaxed">
+                Get 30% welcome bonus on your first order! Worldwide shipping
+                available.
+              </p>
+
+              <div class="flex flex-col sm:flex-row gap-4">
+                <button
+                  class="bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-opacity-90 transition shadow-md hover:shadow-lg flex items-center justify-center"
+                >
+                  <span>Shop Now</span>
+                  <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+                <button
+                  class="bg-white text-primary border border-primary px-8 py-4 rounded-full font-semibold hover:bg-primary hover:text-white transition flex items-center justify-center"
+                >
+                  <span>Learn More</span>
+                  <i class="fas fa-question-circle ml-2"></i>
+                </button>
+              </div>
+
+              <div class="mt-8 flex items-center text-gray-500">
+                <div class="flex -space-x-3 mr-4">
+                  <div
+                    class="w-8 h-8 rounded-full border-2 border-white bg-purple-500"
+                  ></div>
+                  <div
+                    class="w-8 h-8 rounded-full border-2 border-white bg-blue-500"
+                  ></div>
+                  <div
+                    class="w-8 h-8 rounded-full border-2 border-white bg-green-500"
+                  ></div>
+                </div>
+                <p class="text-sm">Join 10k+ satisfied customers worldwide</p>
+              </div>
+            </div>
+
+            <!-- Image Section -->
+            <div
+              class="lg:w-1/2 p-6 flex justify-center items-center bg-gradient-to-br from-secondary to-secondary-600 rounded-xl m-4 lg:m-6"
+            >
+              <div class="relative">
+                <div
+                  class="absolute -inset-4 bg-white bg-opacity-30 rounded-2xl blur-lg"
+                ></div>
+                <img
+                  src="images/hero.png"
+                  alt="Tijaar Household Essentials"
+                  class="relative rounded-2xl shadow-lg w-full max-w-md"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shop by Category -->
+    <section class="w-full px-4 md:px-7 mt-16 mb-10">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-10">
+          <h2
+            class="text-3xl md:text-4xl font-bold text-headings font-heading mb-4"
+          >
+            Shop by Category
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Discover our wide range of household essentials for every room in
+            your home
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 md:gap-6"
+        >
+          <!-- Category 1 -->
+          <div
+            class="group bg-white rounded-xl p-5 text-center shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-primary hover:border-opacity-30 transform hover:-translate-y-1"
+          >
+            <div
+              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary group-hover:bg-opacity-10 transition-colors duration-300"
+            >
+              <i
+                class="fas fa-utensils text-primary text-2xl group-hover:scale-110 transition-transform duration-300"
+              ></i>
+            </div>
+            <p class="text-headings font-medium text-sm md:text-base">
+              Kitchenware
+            </p>
+            <span class="text-xs text-gray-500 mt-1 block">42 products</span>
+          </div>
+
+          <!-- Category 2 -->
+          <div
+            class="group bg-white rounded-xl p-5 text-center shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-primary hover:border-opacity-30 transform hover:-translate-y-1"
+          >
+            <div
+              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary group-hover:bg-opacity-10 transition-colors duration-300"
+            >
+              <i
+                class="fas fa-couch text-primary text-2xl group-hover:scale-110 transition-transform duration-300"
+              ></i>
+            </div>
+            <p class="text-headings font-medium text-sm md:text-base">
+              Furniture
+            </p>
+            <span class="text-xs text-gray-500 mt-1 block">35 products</span>
+          </div>
+
+          <!-- Category 3 -->
+          <div
+            class="group bg-white rounded-xl p-5 text-center shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-primary hover:border-opacity-30 transform hover:-translate-y-1"
+          >
+            <div
+              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary group-hover:bg-opacity-10 transition-colors duration-300"
+            >
+              <i
+                class="fas fa-blender text-primary text-2xl group-hover:scale-110 transition-transform duration-300"
+              ></i>
+            </div>
+            <p class="text-headings font-medium text-sm md:text-base">
+              Appliances
+            </p>
+            <span class="text-xs text-gray-500 mt-1 block">28 products</span>
+          </div>
+
+          <!-- Category 4 -->
+          <div
+            class="group bg-white rounded-xl p-5 text-center shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-primary hover:border-opacity-30 transform hover:-translate-y-1"
+          >
+            <div
+              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary group-hover:bg-opacity-10 transition-colors duration-300"
+            >
+              <i
+                class="fas fa-tshirt text-primary text-2xl group-hover:scale-110 transition-transform duration-300"
+              ></i>
+            </div>
+            <p class="text-headings font-medium text-sm md:text-base">
+              Home Textiles
+            </p>
+            <span class="text-xs text-gray-500 mt-1 block">51 products</span>
+          </div>
+
+          <!-- Category 5 -->
+          <div
+            class="group bg-white rounded-xl p-5 text-center shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-primary hover:border-opacity-30 transform hover:-translate-y-1"
+          >
+            <div
+              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary group-hover:bg-opacity-10 transition-colors duration-300"
+            >
+              <i
+                class="fas fa-broom text-primary text-2xl group-hover:scale-110 transition-transform duration-300"
+              ></i>
+            </div>
+            <p class="text-headings font-medium text-sm md:text-base">
+              Cleaning
+            </p>
+            <span class="text-xs text-gray-500 mt-1 block">39 products</span>
+          </div>
+
+          <!-- Category 6 -->
+          <div
+            class="group bg-white rounded-xl p-5 text-center shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-primary hover:border-opacity-30 transform hover:-translate-y-1"
+          >
+            <div
+              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary group-hover:bg-opacity-10 transition-colors duration-300"
+            >
+              <i
+                class="fas fa-lightbulb text-primary text-2xl group-hover:scale-110 transition-transform duration-300"
+              ></i>
+            </div>
+            <p class="text-headings font-medium text-sm md:text-base">
+              Lighting
+            </p>
+            <span class="text-xs text-gray-500 mt-1 block">24 products</span>
+          </div>
+
+          <!-- Category 7 -->
+          <div
+            class="group bg-white rounded-xl p-5 text-center shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-primary hover:border-opacity-30 transform hover:-translate-y-1"
+          >
+            <div
+              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary group-hover:bg-opacity-10 transition-colors duration-300"
+            >
+              <i
+                class="fas fa-toolbox text-primary text-2xl group-hover:scale-110 transition-transform duration-300"
+              ></i>
+            </div>
+            <p class="text-headings font-medium text-sm md:text-base">Tools</p>
+            <span class="text-xs text-gray-500 mt-1 block">31 products</span>
+          </div>
+
+          <!-- Category 8 -->
+          <div
+            class="group bg-white rounded-xl p-5 text-center shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-primary hover:border-opacity-30 transform hover:-translate-y-1"
+          >
+            <div
+              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary group-hover:bg-opacity-10 transition-colors duration-300"
+            >
+              <i
+                class="fas fa-shower text-primary text-2xl group-hover:scale-110 transition-transform duration-300"
+              ></i>
+            </div>
+            <p class="text-headings font-medium text-sm md:text-base">Bath</p>
+            <span class="text-xs text-gray-500 mt-1 block">47 products</span>
+          </div>
+
+          <!-- Category 9 -->
+          <div
+            class="group bg-white rounded-xl p-5 text-center shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-primary hover:border-opacity-30 transform hover:-translate-y-1"
+          >
+            <div
+              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary group-hover:bg-opacity-10 transition-colors duration-300"
+            >
+              <i
+                class="fas fa-seedling text-primary text-2xl group-hover:scale-110 transition-transform duration-300"
+              ></i>
+            </div>
+            <p class="text-headings font-medium text-sm md:text-base">Garden</p>
+            <span class="text-xs text-gray-500 mt-1 block">33 products</span>
+          </div>
+
+          <!-- Category 10 -->
+          <div
+            class="group bg-white rounded-xl p-5 text-center shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-primary hover:border-opacity-30 transform hover:-translate-y-1"
+          >
+            <div
+              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary group-hover:bg-opacity-10 transition-colors duration-300"
+            >
+              <i
+                class="fas fa-warehouse text-primary text-2xl group-hover:scale-110 transition-transform duration-300"
+              ></i>
+            </div>
+            <p class="text-headings font-medium text-sm md:text-base">
+              Storage
+            </p>
+            <span class="text-xs text-gray-500 mt-1 block">29 products</span>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <button
+            class="bg-white text-primary border border-primary px-8 py-3 rounded-full font-semibold hover:bg-primary hover:text-white transition flex items-center justify-center mx-auto"
+          >
+            <span>View All Categories</span>
+            <i class="fas fa-chevron-down ml-2"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="w-full px-4 md:px-7 mt-16 mb-12">
+      <div class="max-w-6xl mx-auto">
+        <div
+          class="flex flex-col md:flex-row items-start md:items-center justify-between mb-8"
+        >
+          <div>
+            <h2
+              class="text-3xl md:text-4xl font-bold text-headings font-heading"
+            >
+              Featured Products
+            </h2>
+            <p class="text-gray-600 mt-2">
+              Bestsellers loved by customers worldwide
+            </p>
+          </div>
+          <a
+            href="#"
+            class="flex items-center text-primary font-semibold mt-4 md:mt-0 group hover:text-primary-dark transition-colors"
+          >
+            <span>View All Products</span>
+            <i
+              class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"
+            ></i>
+          </a>
+        </div>
+
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8"
+        >
+          <!-- Product 1 -->
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100"
+          >
+            <div
+              class="relative h-52 bg-gradient-to-br from-background to-background-200 flex items-center justify-center p-4"
+            >
+              <img
+                src="images/featured/chair.png"
+                loading="lazy"
+                alt="Library Chair"
+                class="max-h-40 group-hover:scale-105 transition-transform duration-300"
+              />
+              <div
+                class="absolute top-3 left-3 bg-red-100 text-red-600 text-xs font-bold px-2 py-1 rounded-full"
+              >
+                POPULAR
+              </div>
+              <button
+                class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-500 hover:text-primary transition-colors"
+              >
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold text-headings text-lg mb-1">
+                Library Chair
+              </h3>
+              <div class="flex items-center mb-2">
+                <div class="flex text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span class="text-xs text-gray-500 ml-2">(128)</span>
+              </div>
+              <div class="flex items-center mt-3">
+                <span class="text-primary font-bold text-xl">4,999</span>
+                <span class="text-gray-500 line-through ml-2">6,999</span>
+                <span
+                  class="text-green-600 text-sm font-medium ml-auto bg-green-100 px-2 py-1 rounded-md"
+                  >29%</span
+                >
+              </div>
+              <button
+                class="mt-4 bg-primary text-white w-full py-3 rounded-lg hover:bg-primary-dark transition flex items-center justify-center add-to-cart"
+                data-product="Premium Cookware Set"
+                data-price="4999"
+              >
+                <i class="fas fa-shopping-cart mr-2"></i>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 2 -->
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100"
+          >
+            <div
+              class="relative h-52 bg-gradient-to-br from-background to-background-200 flex items-center justify-center p-4"
+            >
+              <img
+                src="images/featured/fruits.png"
+                loading="lazy"
+                alt="Fruits"
+                class="max-h-40 group-hover:scale-105 transition-transform duration-300"
+              />
+              <button
+                class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-500 hover:text-primary transition-colors"
+              >
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold text-headings text-lg mb-1">
+                Qaulity Fruits
+              </h3>
+              <div class="flex items-center mb-2">
+                <div class="flex text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+                <span class="text-xs text-gray-500 ml-2">(94)</span>
+              </div>
+              <div class="flex items-center mt-3">
+                <span class="text-primary font-bold text-xl">2,499</span>
+                <span class="text-gray-500 line-through ml-2">3,499</span>
+                <span
+                  class="text-green-600 text-sm font-medium ml-auto bg-green-100 px-2 py-1 rounded-md"
+                  >28%</span
+                >
+              </div>
+              <button
+                class="mt-4 bg-primary text-white w-full py-3 rounded-lg hover:bg-primary-dark transition flex items-center justify-center add-to-cart"
+                data-product="Smart Blender"
+                data-price="2499"
+              >
+                <i class="fas fa-shopping-cart mr-2"></i>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 3 -->
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100"
+          >
+            <div
+              class="relative h-52 bg-gradient-to-br from-background to-background-200 flex items-center justify-center p-4"
+            >
+              <img
+                src="images/featured/bed.png"
+                loading="lazy"
+                alt="Wooden Bed"
+                class="max-h-40 group-hover:scale-105 transition-transform duration-300"
+              />
+              <div
+                class="absolute top-3 left-3 bg-blue-100 text-blue-600 text-xs font-bold px-2 py-1 rounded-full"
+              >
+                NEW
+              </div>
+              <button
+                class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-500 hover:text-primary transition-colors"
+              >
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold text-headings text-lg mb-1">
+                Wooden Bed
+              </h3>
+              <div class="flex items-center mb-2">
+                <div class="flex text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <span class="text-xs text-gray-500 ml-2">(215)</span>
+              </div>
+              <div class="flex items-center mt-3">
+                <span class="text-primary font-bold text-xl">1,799</span>
+                <span class="text-gray-500 line-through ml-2">2,499</span>
+                <span
+                  class="text-green-600 text-sm font-medium ml-auto bg-green-100 px-2 py-1 rounded-md"
+                  >28%</span
+                >
+              </div>
+              <button
+                class="mt-4 bg-primary text-white w-full py-3 rounded-lg hover:bg-primary-dark transition flex items-center justify-center add-to-cart"
+                data-product="Luxury Bed Sheets"
+                data-price="1799"
+              >
+                <i class="fas fa-shopping-cart mr-2"></i>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 4 -->
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100"
+          >
+            <div
+              class="relative h-52 bg-gradient-to-br from-background to-background-200 flex items-center justify-center p-4"
+            >
+              <img
+                src="images/featured/vacuum.png"
+                loading="lazy"
+                alt="Robot Vacuum"
+                class="max-h-40 group-hover:scale-105 transition-transform duration-300"
+              />
+              <button
+                class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-500 hover:text-primary transition-colors"
+              >
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold text-headings text-lg mb-1">
+                Robot Vacuum
+              </h3>
+              <div class="flex items-center mb-2">
+                <div class="flex text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span class="text-xs text-gray-500 ml-2">(167)</span>
+              </div>
+              <div class="flex items-center mt-3">
+                <span class="text-primary font-bold text-xl">12,999</span>
+                <span class="text-gray-500 line-through ml-2">16,999</span>
+                <span
+                  class="text-green-600 text-sm font-medium ml-auto bg-green-100 px-2 py-1 rounded-md"
+                  >23%</span
+                >
+              </div>
+              <button
+                class="mt-4 bg-primary text-white w-full py-3 rounded-lg hover:bg-primary-dark transition flex items-center justify-center add-to-cart"
+                data-product="Robot Vacuum"
+                data-price="12999"
+              >
+                <i class="fas fa-shopping-cart mr-2"></i>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top Electronics -->
+    <section class="w-full px-4 md:px-7 mt-16 mb-12">
+      <div class="max-w-6xl mx-auto">
+        <div
+          class="flex flex-col md:flex-row items-start md:items-center justify-between mb-8"
+        >
+          <div>
+            <h2
+              class="text-3xl md:text-4xl font-bold text-headings font-heading"
+            >
+              Top Electronics
+            </h2>
+            <p class="text-gray-600 mt-2">
+              Latest gadgets and smart home technology
+            </p>
+          </div>
+          <a
+            href="#"
+            class="flex items-center text-primary font-semibold mt-4 md:mt-0 group hover:text-primary-dark transition-colors"
+          >
+            <span>View All Electronics</span>
+            <i
+              class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"
+            ></i>
+          </a>
+        </div>
+
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8"
+        >
+          <!-- Electronic 1 -->
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100"
+          >
+            <div
+              class="relative h-52 bg-gradient-to-br from-background to-background-200 flex items-center justify-center p-4"
+            >
+              <img
+                src="images/electronics/tv.png"
+                alt="Smart TV"
+                class="max-h-40 group-hover:scale-105 transition-transform duration-300"
+              />
+              <div
+                class="absolute top-3 left-3 bg-red-100 text-red-600 text-xs font-bold px-2 py-1 rounded-full"
+              >
+                SALE
+              </div>
+              <button
+                class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-500 hover:text-primary transition-colors"
+              >
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold text-headings text-lg mb-1">
+                55" Smart TV
+              </h3>
+              <div class="flex items-center mb-2">
+                <div class="flex text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span class="text-xs text-gray-500 ml-2">(142)</span>
+              </div>
+              <div class="flex items-center mt-3">
+                <span class="text-primary font-bold text-xl">45,999</span>
+                <span class="text-gray-500 line-through ml-2">59,999</span>
+                <span
+                  class="text-green-600 text-sm font-medium ml-auto bg-green-100 px-2 py-1 rounded-md"
+                  >23%</span
+                >
+              </div>
+              <button
+                class="mt-4 bg-primary text-white w-full py-3 rounded-lg hover:bg-primary-dark transition flex items-center justify-center add-to-cart"
+                data-product="55' Smart TV"
+                data-price="45999"
+              >
+                <i class="fas fa-shopping-cart mr-2"></i>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- Electronic 2 -->
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100"
+          >
+            <div
+              class="relative h-52 bg-gradient-to-br from-background to-background-200 flex items-center justify-center p-4"
+            >
+              <img
+                src="images/electronics/earpods.png"
+                alt="Wireless Earbuds"
+                class="max-h-40 group-hover:scale-105 transition-transform duration-300"
+              />
+              <button
+                class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-500 hover:text-primary transition-colors"
+              >
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold text-headings text-lg mb-1">
+                Wireless Earbuds
+              </h3>
+              <div class="flex items-center mb-2">
+                <div class="flex text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+                <span class="text-xs text-gray-500 ml-2">(89)</span>
+              </div>
+              <div class="flex items-center mt-3">
+                <span class="text-primary font-bold text-xl">3,499</span>
+                <span class="text-gray-500 line-through ml-2">4,999</span>
+                <span
+                  class="text-green-600 text-sm font-medium ml-auto bg-green-100 px-2 py-1 rounded-md"
+                  >30%</span
+                >
+              </div>
+              <button
+                class="mt-4 bg-primary text-white w-full py-3 rounded-lg hover:bg-primary-dark transition flex items-center justify-center add-to-cart"
+                data-product="Wireless Earbuds"
+                data-price="3499"
+              >
+                <i class="fas fa-shopping-cart mr-2"></i>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- Electronic 3 -->
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100"
+          >
+            <div
+              class="relative h-52 bg-gradient-to-br from-background to-background-200 flex items-center justify-center p-4"
+            >
+              <img
+                src="images/electronics/watch.png"
+                alt="Smart Watch"
+                class="max-h-40 group-hover:scale-105 transition-transform duration-300"
+              />
+              <div
+                class="absolute top-3 left-3 bg-blue-100 text-blue-600 text-xs font-bold px-2 py-1 rounded-full"
+              >
+                NEW
+              </div>
+              <button
+                class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-500 hover:text-primary transition-colors"
+              >
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold text-headings text-lg mb-1">
+                Smart Watch
+              </h3>
+              <div class="flex items-center mb-2">
+                <div class="flex text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <span class="text-xs text-gray-500 ml-2">(205)</span>
+              </div>
+              <div class="flex items-center mt-3">
+                <span class="text-primary font-bold text-xl">8,999</span>
+                <span class="text-gray-500 line-through ml-2">12,999</span>
+                <span
+                  class="text-green-600 text-sm font-medium ml-auto bg-green-100 px-2 py-1 rounded-md"
+                  >31%</span
+                >
+              </div>
+              <button
+                class="mt-4 bg-primary text-white w-full py-3 rounded-lg hover:bg-primary-dark transition flex items-center justify-center add-to-cart"
+                data-product="Smart Watch"
+                data-price="8999"
+              >
+                <i class="fas fa-shopping-cart mr-2"></i>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- Electronic 4 -->
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100"
+          >
+            <div
+              class="relative h-52 bg-gradient-to-br from-background to-background-200 flex items-center justify-center p-4"
+            >
+              <img
+                src="images/electronics/console.png"
+                alt="Gaming Console"
+                class="max-h-40 group-hover:scale-105 transition-transform duration-300"
+              />
+              <button
+                class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-500 hover:text-primary transition-colors"
+              >
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold text-headings text-lg mb-1">
+                Gaming Console
+              </h3>
+              <div class="flex items-center mb-2">
+                <div class="flex text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span class="text-xs text-gray-500 ml-2">(178)</span>
+              </div>
+              <div class="flex items-center mt-3">
+                <span class="text-primary font-bold text-xl">32,999</span>
+                <span class="text-gray-500 line-through ml-2">39,999</span>
+                <span
+                  class="text-green-600 text-sm font-medium ml-auto bg-green-100 px-2 py-1 rounded-md"
+                  >18%</span
+                >
+              </div>
+              <button
+                class="mt-4 bg-primary text-white w-full py-3 rounded-lg hover:bg-primary-dark transition flex items-center justify-center add-to-cart"
+                data-product="Gaming Console"
+                data-price="32999"
+              >
+                <i class="fas fa-shopping-cart mr-2"></i>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Home Decor -->
+    <section class="w-full px-4 md:px-7 mt-16 mb-12">
+      <div class="max-w-6xl mx-auto">
+        <div
+          class="flex flex-col md:flex-row items-start md:items-center justify-between mb-8"
+        >
+          <div>
+            <h2
+              class="text-3xl md:text-4xl font-bold text-headings font-heading"
+            >
+              Home Decor
+            </h2>
+            <p class="text-gray-600 mt-2">
+              Beautiful pieces to transform your living space
+            </p>
+          </div>
+          <a
+            href="#"
+            class="flex items-center text-primary font-semibold mt-4 md:mt-0 group hover:text-primary-dark transition-colors"
+          >
+            <span>View All Decor</span>
+            <i
+              class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"
+            ></i>
+          </a>
+        </div>
+
+        <div
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 md:gap-8"
+        >
+          <!-- Decor 1 -->
+          <div class="circle-card">
+            <div class="circle-image">
+              <img src="images/decor/art.png" alt="Wall Art" />
+            </div>
+            <h3 class="font-semibold text-headings text-lg mb-1">Wall Art</h3>
+            <div class="flex items-center mb-2">
+              <div class="flex text-yellow-400 text-sm">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="text-xs text-gray-500 ml-2">(87)</span>
+            </div>
+            <div class="flex items-center">
+              <span class="text-primary font-bold">1,299</span>
+              <span class="text-gray-500 line-through text-sm ml-2">1,899</span>
+            </div>
+            <button
+              class="mt-3 bg-primary text-white px-4 py-2 rounded-lg text-sm hover:bg-primary-dark transition add-to-cart"
+              data-product="Wall Art"
+              data-price="1299"
+            >
+              Add to Cart
+            </button>
+          </div>
+
+          <!-- Decor 2 -->
+          <div class="circle-card">
+            <div class="circle-image">
+              <img src="images/decor/vases.png" loading="lazy" alt="Vases" />
+            </div>
+            <h3 class="font-semibold text-headings text-lg mb-1">Vases</h3>
+            <div class="flex items-center mb-2">
+              <div class="flex text-yellow-400 text-sm">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <span class="text-xs text-gray-500 ml-2">(64)</span>
+            </div>
+            <div class="flex items-center">
+              <span class="text-primary font-bold">899</span>
+              <span class="text-gray-500 line-through text-sm ml-2">1,299</span>
+            </div>
+            <button
+              class="mt-3 bg-primary text-white px-4 py-2 rounded-lg text-sm hover:bg-primary-dark transition add-to-cart"
+              data-product="Decorative Vases"
+              data-price="899"
+            >
+              Add to Cart
+            </button>
+          </div>
+
+          <!-- Decor 3 -->
+          <div class="circle-card">
+            <div class="circle-image">
+              <img
+                src="images/decor/cushions.png"
+                loading="lazy"
+                alt=" Cushions"
+              />
+            </div>
+            <h3 class="font-semibold text-headings text-lg mb-1">Cushions</h3>
+            <div class="flex items-center mb-2">
+              <div class="flex text-yellow-400 text-sm">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="text-xs text-gray-500 ml-2">(112)</span>
+            </div>
+            <div class="flex items-center">
+              <span class="text-primary font-bold">499</span>
+              <span class="text-gray-500 line-through text-sm ml-2">799</span>
+            </div>
+            <button
+              class="mt-3 bg-primary text-white px-4 py-2 rounded-lg text-sm hover:bg-primary-dark transition add-to-cart"
+              data-product="Decorative Cushions"
+              data-price="499"
+            >
+              Add to Cart
+            </button>
+          </div>
+
+          <!-- Decor 4 -->
+          <div class="circle-card">
+            <div class="circle-image">
+              <img
+                src="images/decor/candle.png"
+                loading="lazy"
+                alt="Scented Candles"
+              />
+            </div>
+            <h3 class="font-semibold text-headings text-lg mb-1">
+              Scented Candles
+            </h3>
+            <div class="flex items-center mb-2">
+              <div class="flex text-yellow-400 text-sm">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="text-xs text-gray-500 ml-2">(93)</span>
+            </div>
+            <div class="flex items-center">
+              <span class="text-primary font-bold">349</span>
+              <span class="text-gray-500 line-through text-sm ml-2">599</span>
+            </div>
+            <button
+              class="mt-3 bg-primary text-white px-4 py-2 rounded-lg text-sm hover:bg-primary-dark transition add-to-cart"
+              data-product="Scented Candles"
+              data-price="349"
+            >
+              Add to Cart
+            </button>
+          </div>
+
+          <!-- Decor 5 -->
+          <div class="circle-card">
+            <div class="circle-image">
+              <img src="images/decor/mirror.png" loading="lazy" alt="Mirrors" />
+            </div>
+            <h3 class="font-semibold text-headings text-lg mb-1">Mirrors</h3>
+            <div class="flex items-center mb-2">
+              <div class="flex text-yellow-400 text-sm">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <span class="text-xs text-gray-500 ml-2">(71)</span>
+            </div>
+            <div class="flex items-center">
+              <span class="text-primary font-bold">2,199</span>
+              <span class="text-gray-500 line-through text-sm ml-2">2,999</span>
+            </div>
+            <button
+              class="mt-3 bg-primary text-white px-4 py-2 rounded-lg text-sm hover:bg-primary-dark transition add-to-cart"
+              data-product="Decorative Mirrors"
+              data-price="2199"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customers -->
+    <section class="w-full px-4 md:px-7 mt-16 mb-16">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2
+            class="text-3xl md:text-4xl font-bold text-headings font-heading mb-4"
+          >
+            What Our Customers Say
+          </h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Join thousands of satisfied customers who trust Tijaar for their
+            home essentials
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Testimonial 1 -->
+          <div
+            class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 group"
+          >
+            <div class="flex items-center mb-5">
+              <div
+                class="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center text-white font-bold text-xl"
+              >
+                FP
+              </div>
+              <div class="ml-4">
+                <h4 class="font-semibold text-lg">Fahad Pervaiz</h4>
+                <p class="text-gray-500 text-sm">Islamabad, Pakistan</p>
+              </div>
+            </div>
+            <div class="flex text-yellow-400 mb-4">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="text-gray-700 italic relative">
+              <i
+                class="fas fa-quote-left text-primary opacity-20 text-xl absolute -left-2 -top-2"
+              ></i>
+              "Tijaar has transformed my home with their quality products. The
+              kitchenware I purchased is not only beautiful but also highly
+              functional. Delivery was prompt and the customer service was
+              exceptional!"
+            </p>
+            <div
+              class="mt-5 pt-4 border-t border-gray-100 flex items-center text-sm text-gray-500"
+            >
+              <i class="fas fa-check-circle text-green-500 mr-2"></i>
+              <span>Verified Purchase</span>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div
+            class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 group"
+          >
+            <div class="flex items-center mb-5">
+              <div
+                class="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center text-white font-bold text-xl"
+              >
+                MJ
+              </div>
+              <div class="ml-4">
+                <h4 class="font-semibold text-lg">Mahnoor Majeed</h4>
+                <p class="text-gray-500 text-sm">Dubai, United Arab Emirates</p>
+              </div>
+            </div>
+            <div class="flex text-yellow-400 mb-4">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <p class="text-gray-700 italic relative">
+              <i
+                class="fas fa-quote-left text-primary opacity-20 text-xl absolute -left-2 -top-2"
+              ></i>
+              "The furniture I bought from Tijaar has completely changed the
+              look of my living room. The quality is outstanding and it was
+              surprisingly easy to assemble. Will definitely shop again!"
+            </p>
+            <div
+              class="mt-5 pt-4 border-t border-gray-100 flex items-center text-sm text-gray-500"
+            >
+              <i class="fas fa-check-circle text-green-500 mr-2"></i>
+              <span>Verified Purchase</span>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div
+            class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 group"
+          >
+            <div class="flex items-center mb-5">
+              <div
+                class="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center text-white font-bold text-xl"
+              >
+                MA
+              </div>
+              <div class="ml-4">
+                <h4 class="font-semibold text-lg">Mirrha Ali</h4>
+                <p class="text-gray-500 text-sm">Tokyo, Japan</p>
+              </div>
+            </div>
+            <div class="flex text-yellow-400 mb-4">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="text-gray-700 italic relative">
+              <i
+                class="fas fa-quote-left text-primary opacity-20 text-xl absolute -left-2 -top-2"
+              ></i>
+              "I'm extremely impressed with Tijaar's customer service. When I
+              had an issue with my order, they resolved it immediately. The
+              products are high quality and prices are very reasonable. Highly
+              recommend!"
+            </p>
+            <div
+              class="mt-5 pt-4 border-t border-gray-100 flex items-center text-sm text-gray-500"
+            >
+              <i class="fas fa-check-circle text-green-500 mr-2"></i>
+              <span>Verified Purchase</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div
+          class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 bg-background rounded-2xl p-8"
+        >
+          <div class="text-center">
+            <div class="text-3xl md:text-4xl font-bold text-primary">10K+</div>
+            <p class="text-gray-600 mt-2">Happy Customers</p>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl md:text-4xl font-bold text-primary">4.8/5</div>
+            <p class="text-gray-600 mt-2">Average Rating</p>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl md:text-4xl font-bold text-primary">50+</div>
+            <p class="text-gray-600 mt-2">Cities Served</p>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl md:text-4xl font-bold text-primary">98%</div>
+            <p class="text-gray-600 mt-2">Recommend Us</p>
+          </div>
+        </div>
+
+        <div class="flex justify-center mt-12">
+          <button
+            class="bg-white text-primary border-2 border-primary px-8 py-3 rounded-full font-semibold hover:bg-primary hover:text-white transition flex items-center justify-center group"
+          >
+            <span>Read More Reviews</span>
+            <i
+              class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"
+            ></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why? -->
+    <section class="w-full px-4 md:px-7 mt-16">
+      <div class="max-w-6xl mx-auto">
+        <h2
+          class="text-2xl md:text-3xl font-bold text-headings font-heading mb-2 text-center"
+        >
+          Why Choose Tijaar?
+        </h2>
+        <p class="text-center text-gray-600 mb-10">
+          We're committed to excellence in every aspect
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Feature 1 -->
+          <div
+            class="feature-card bg-white p-6 rounded-lg text-center shadow-sm"
+          >
+            <div
+              class="w-16 h-16 mx-auto bg-primary rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="fas fa-award text-white text-2xl"></i>
+            </div>
+            <h3 class="font-semibold text-lg mb-2">Quality Assurance</h3>
+            <p class="text-gray-700">
+              All our products undergo rigorous quality checks to ensure
+              durability and satisfaction.
+            </p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div
+            class="feature-card bg-white p-6 rounded-lg text-center shadow-sm"
+          >
+            <div
+              class="w-16 h-16 mx-auto bg-primary rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="fas fa-truck text-white text-2xl"></i>
+            </div>
+            <h3 class="font-semibold text-lg mb-2">Fast Delivery</h3>
+            <p class="text-gray-700">
+              We deliver to most locations within 2-3 business days with
+              reliable shipping partners.
+            </p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div
+            class="feature-card bg-white p-6 rounded-lg text-center shadow-sm"
+          >
+            <div
+              class="w-16 h-16 mx-auto bg-primary rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="fas fa-shield-alt text-white text-2xl"></i>
+            </div>
+            <h3 class="font-semibold text-lg mb-2">Secure Payment</h3>
+            <p class="text-gray-700">
+              Your transactions are protected with industry-standard encryption
+              technology.
+            </p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div
+            class="feature-card bg-white p-6 rounded-lg text-center shadow-sm"
+          >
+            <div
+              class="w-16 h-16 mx-auto bg-primary rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="fas fa-headset text-white text-2xl"></i>
+            </div>
+            <h3 class="font-semibold text-lg mb-2">24/7 Support</h3>
+            <p class="text-gray-700">
+              Our customer service team is always ready to assist you with any
+              questions or concerns.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Special Offers -->
+    <section class="w-full px-4 md:px-7 mt-16 mb-12">
+      <div
+        class="max-w-6xl mx-auto bg-gradient-to-r from-primary to-primary-dark rounded-2xl overflow-hidden shadow-xl"
+      >
+        <div class="flex flex-col md:flex-row">
+          <!-- Content Section -->
+          <div class="p-8 md:p-10 md:w-2/3">
+            <div class="mb-2">
+              <span
+                class="bg-white text-primary text-sm font-bold px-4 py-1 rounded-full inline-flex items-center"
+              >
+                <i class="fas fa-bolt mr-2"></i>
+                LIMITED TIME OFFER
+              </span>
+            </div>
+
+            <h2
+              class="text-3xl md:text-4xl font-bold font-heading mb-4 text-white"
+            >
+              Summer Sale - Up to 30% Off!
+            </h2>
+            <p class="text-lg mb-6 text-white text-opacity-90">
+              Transform your home with premium essentials. Special prices ending
+              soon:
+            </p>
+
+            <!-- Countdown Timer -->
+            <div class="flex gap-3 mb-8">
+              <div
+                class="bg-white bg-opacity-15 backdrop-blur-sm rounded-xl p-4 text-center w-24 border border-white border-opacity-20"
+              >
+                <span class="text-3xl font-bold text-white" id="days">00</span>
+                <p class="text-sm text-white text-opacity-80 mt-1">Days</p>
+              </div>
+              <div
+                class="bg-white bg-opacity-15 backdrop-blur-sm rounded-xl p-4 text-center w-24 border border-white border-opacity-20"
+              >
+                <span class="text-3xl font-bold text-white" id="hours">00</span>
+                <p class="text-sm text-white text-opacity-80 mt-1">Hours</p>
+              </div>
+              <div
+                class="bg-white bg-opacity-15 backdrop-blur-sm rounded-xl p-4 text-center w-24 border border-white border-opacity-20"
+              >
+                <span class="text-3xl font-bold text-white" id="minutes"
+                  >00</span
+                >
+                <p class="text-sm text-white text-opacity-80 mt-1">Mins</p>
+              </div>
+              <div
+                class="bg-white bg-opacity-15 backdrop-blur-sm rounded-xl p-4 text-center w-24 border border-white border-opacity-20"
+              >
+                <span class="text-3xl font-bold text-white" id="seconds"
+                  >00</span
+                >
+                <p class="text-sm text-white text-opacity-80 mt-1">Secs</p>
+              </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+              <button
+                class="bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-opacity-90 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center"
+              >
+                <span>Shop Now & Save</span>
+                <i class="fas fa-arrow-right ml-2"></i>
+              </button>
+              <button
+                class="bg-transparent border-2 border-white border-opacity-50 text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:bg-opacity-10 transition"
+              >
+                View All Offers
+              </button>
+            </div>
+
+            <div
+              class="mt-6 flex items-center text-white text-opacity-80 text-sm"
+            >
+              <i class="fas fa-truck mr-2"></i>
+              <span>Free shipping on orders over ₹1999</span>
+              <span class="mx-3">•</span>
+              <i class="fas fa-undo mr-2"></i>
+              <span>30-day money-back guarantee</span>
+            </div>
+          </div>
+
+          <!-- Image Section -->
+          <div class="md:w-1/3 flex items-center justify-center p-6">
+            <div class="relative">
+              <div
+                class="absolute -inset-4 bg-white bg-opacity-20 rounded-2xl blur-lg"
+              ></div>
+              <img
+                src="images/offer.png"
+                alt="Special Offer"
+                class="relative rounded-2xl w-full max-w-xs"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full bg-primary text-white mt-16 px-6 py-12">
+      <div class="max-w-6xl mx-auto">
+        <!-- Main Footer Content -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <!-- Branding & Contact -->
+          <div class="flex flex-col gap-6">
+            <div class="flex items-center">
+              <img
+                src="images/footerlogo.png"
+                alt="Tijaar Logo"
+                class="w-[100px] h-[40px]"
+              />
+            </div>
+
+            <div class="flex flex-col gap-3 mt-2">
+              <p class="font-medium text-white text-opacity-100">Contact Us</p>
+              <a
+                href="https://wa.me/12029182132"
+                class="flex items-center gap-3 hover:text-white transition-colors group"
+              >
+                <div
+                  class="w-10 h-10 bg-white bg-opacity-10 rounded-full flex items-center justify-center group-hover:bg-opacity-20 transition"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                </div>
+                <span
+                  class="text-white text-opacity-90 group-hover:text-opacity-100"
+                  >+1 202-918-2132</span
+                >
+              </a>
+              <a
+                href="tel:+12029182132"
+                class="flex items-center gap-3 hover:text-white transition-colors group"
+              >
+                <div
+                  class="w-10 h-10 bg-white bg-opacity-10 rounded-full flex items-center justify-center group-hover:bg-opacity-20 transition"
+                >
+                  <i class="fas fa-phone"></i>
+                </div>
+                <span
+                  class="text-white text-opacity-90 group-hover:text-opacity-100"
+                  >+1 202-918-2132</span
+                >
+              </a>
+              <a
+                href="mailto:support@tijaar.com"
+                class="flex items-center gap-3 hover:text-white transition-colors group"
+              >
+                <div
+                  class="w-10 h-10 bg-white bg-opacity-10 rounded-full flex items-center justify-center group-hover:bg-opacity-20 transition"
+                >
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <span
+                  class="text-white text-opacity-90 group-hover:text-opacity-100"
+                  >support@tijaar.com</span
+                >
+              </a>
+            </div>
+          </div>
+
+          <!-- Categories -->
+          <div>
+            <p
+              class="font-semibold text-lg pb-2 mb-4 inline-block border-b-2 border-white border-opacity-30"
+            >
+              Shop
+            </p>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="text-white text-opacity-80 hover:text-opacity-100 hover:underline transition"
+                  >Kitchenware</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-white text-opacity-80 hover:text-opacity-100 hover:underline transition"
+                  >Furniture</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-white text-opacity-80 hover:text-opacity-100 hover:underline transition"
+                  >Appliances</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-white text-opacity-80 hover:text-opacity-100 hover:underline transition"
+                  >Home Textiles</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-white text-opacity-80 hover:text-opacity-100 hover:underline transition"
+                  >Cleaning</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-white text-opacity-80 hover:text-opacity-100 hover:underline transition"
+                  >Lighting</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Customer Services -->
+          <div>
+            <p
+              class="font-semibold text-lg pb-2 mb-4 inline-block border-b-2 border-white border-opacity-30"
+            >
+              Support
+            </p>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="text-white text-opacity-80 hover:text-opacity-100 hover:underline transition"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-white text-opacity-80 hover:text-opacity-100 hover:underline transition"
+                  >Terms & Conditions</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-white text-opacity-80 hover:text-opacity-100 hover:underline transition"
+                  >FAQ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-white text-opacity-80 hover:text-opacity-100 hover:underline transition"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-white text-opacity-80 hover:text-opacity-100 hover:underline transition"
+                  >Return Policy</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-white text-opacity-80 hover:text-opacity-100 hover:underline transition"
+                  >Shipping Info</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Newsletter -->
+          <div>
+            <p
+              class="font-semibold text-lg pb-2 mb-4 inline-block border-b-2 border-white border-opacity-30"
+            >
+              Stay Updated
+            </p>
+            <p class="mb-4 text-white text-opacity-90">
+              Subscribe for exclusive offers and updates
+            </p>
+            <form class="flex flex-col gap-3">
+              <input
+                type="email"
+                placeholder="Your email address"
+                class="px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-30"
+                required
+              />
+              <button
+                type="submit"
+                class="bg-white text-primary px-5 py-3 rounded-lg font-semibold hover:bg-gray-100 transition flex items-center justify-center"
+              >
+                <span>Subscribe</span>
+                <i class="fas fa-paper-plane ml-2"></i>
+              </button>
+            </form>
+
+            <div class="mt-6">
+              <p class="mb-3 text-white text-opacity-90">Follow Us</p>
+              <div class="flex gap-3">
+                <a
+                  href="#"
+                  class="w-10 h-10 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-opacity-20 transition"
+                >
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-opacity-20 transition"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-opacity-20 transition"
+                >
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-opacity-20 transition"
+                >
+                  <i class="fab fa-pinterest-p"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Methods & Trust Badges -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 pt-8 border-t border-white border-opacity-20"
+        >
+          <div>
+            <p class="text-white text-opacity-90 mb-3">We Accept</p>
+            <div class="flex gap-2">
+              <div class="bg-white bg-opacity-10 p-2 rounded-lg">
+                <i class="fab fa-cc-visa text-2xl"></i>
+              </div>
+              <div class="bg-white bg-opacity-10 p-2 rounded-lg">
+                <i class="fab fa-cc-mastercard text-2xl"></i>
+              </div>
+              <div class="bg-white bg-opacity-10 p-2 rounded-lg">
+                <i class="fab fa-cc-paypal text-2xl"></i>
+              </div>
+              <div class="bg-white bg-opacity-10 p-2 rounded-lg">
+                <i class="fab fa-cc-apple-pay text-2xl"></i>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-white text-opacity-90 mb-3">Secure & Safe</p>
+            <div class="flex gap-3">
+              <div
+                class="bg-white bg-opacity-10 p-2 rounded-lg flex items-center"
+              >
+                <i class="fas fa-lock mr-2"></i>
+                <span class="text-sm">SSL Secure</span>
+              </div>
+              <div
+                class="bg-white bg-opacity-10 p-2 rounded-lg flex items-center"
+              >
+                <i class="fas fa-shield-alt mr-2"></i>
+                <span class="text-sm">Data Protected</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div
+          class="mt-10 pt-6 border-t border-white border-opacity-20 text-center"
+        >
+          <p class="text-white text-opacity-80 text-sm">
+            &copy; 2023 Tijaar. All rights reserved. Designed with
+            <i class="fas fa-heart text-red-400"></i> for your home
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Loader -->
+    <div class="loader" id="loader">
+      <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+      <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>
