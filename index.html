@@ -50,9 +50,9 @@
     <header
       class="hidden md:flex items-center justify-between w-full h-[42px] bg-secondary px-4 md:px-7"
     >
-      <button class="text-headings text-sm">
+      <p class="text-headings text-sm">
         Welcome to Tijaar - Trust of Every Home
-      </button>
+      </p>
 
       <div class="flex gap-3 md:gap-6 text-xs md:text-sm">
         <button
@@ -131,15 +131,28 @@
         <div
           class="flex items-center gap-3 md:gap-6 text-headings text-sm flex-shrink-0"
         >
-          <div class="flex items-center gap-2 cursor-pointer">
-            <i class="fas fa-user text-primary"></i>
+          <div class="flex items-center gap-2 cursor-pointer group">
+            <i
+              class="fas fa-user text-primary group-hover:scale-110 transition-transform"
+            ></i>
             <p class="hidden sm:inline">Sign Up / Sign In</p>
           </div>
-          <div class="flex items-center gap-2 cursor-pointer relative">
-            <a href="#" id="cartButton"
-              ><i class="fas fa-shopping-cart text-primary"></i>
+          <div class="flex items-center gap-2 cursor-pointer relative group">
+            <a
+              href="#"
+              id="cartButton"
+              class="relative group flex items-center gap-2"
+            >
+              <i
+                class="fas fa-shopping-cart text-primary group-hover:scale-110 transition-transform"
+              ></i>
               <p class="hidden sm:inline">Cart</p>
-              <span id="cartCount" class="cart-count hidden">0</span>
+              <span
+                id="cartCount"
+                class="absolute -top-4 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center shadow-md hidden"
+              >
+                0
+              </span>
             </a>
           </div>
         </div>
@@ -207,65 +220,76 @@
 
     <!-- Hero Section -->
     <section class="relative w-full mt-2">
-      <div class="container mx-auto">
-        <div class="bg-white overflow-hidden">
-          <div class="flex flex-col lg:flex-row">
+      <div class="container mx-auto px-4">
+        <div class="bg-white overflow-hidden rounded-xl">
+          <div class="flex flex-col lg:flex-row items-center">
             <!-- Image Section -->
             <div
-              class="lg:w-1/2 p-6 flex justify-center items-center bg-gradient-to-br from-secondary to-secondary-600 rounded-xl m-4 lg:m-6"
+              class="lg:w-1/2 p-6 flex justify-center items-center bg-gradient-to-br from-secondary to-secondary-600 rounded-xl m-4 lg:m-6 relative"
             >
-              <div class="relative">
-                <div
-                  class="absolute -inset-4 bg-white bg-opacity-30 rounded-2xl blur-lg"
-                ></div>
-                <img
-                  src="images/hero.png"
-                  alt="Tijaar Household Essentials"
-                  class="relative rounded-2xl shadow-lg w-full max-w-md"
-                />
-              </div>
-            </div>
-            <!-- Content -->
-            <div class="lg:w-1/2 p-8 lg:p-10 flex flex-col justify-center">
               <div
-                class="flex flex-col-reverse justify-end sm:flex-row items-center mb-6"
+                class="absolute -inset-4 bg-white/30 rounded-2xl blur-lg pointer-events-none"
+              ></div>
+              <img
+                src="images/hero.png"
+                alt="Tijaar Household Essentials"
+                class="relative rounded-2xl shadow-lg w-full max-w-md"
+              />
+            </div>
+
+            <!-- Content Section -->
+            <div
+              class="lg:w-1/2 p-8 lg:p-10 flex flex-col justify-center text-center lg:text-left"
+            >
+              <!-- Urdu Badge & Logo -->
+              <div
+                class="flex flex-col-reverse sm:flex-row items-center justify-center lg:justify-start mb-6 gap-4"
               >
                 <div
-                  class="inline-flex items-center bg-primary bg-opacity-10 text-primary px-4 py-2 rounded-full mr-4"
+                  class="inline-flex items-center bg-primary/10 text-primary px-4 py-2 rounded-full"
                 >
                   <i class="fas fa-shield-alt mr-2"></i>
-                  <span class="text-2xl">ہر گھر کا اعتماد</span>
+                  <span class="text-2xl font-semibold">ہر گھر کا اعتماد</span>
                 </div>
                 <img
                   src="images/urdu.png"
-                  class="w-[100px] h-[50px]"
+                  class="w-[100px] h-[50px] object-contain"
                   alt="Urdu Logo"
                 />
               </div>
 
-              <p
-                class="text-xl text-headings mb-8 leading-relaxed md:text-end sm:text-center"
-              >
-                Get 30% welcome bonus on your first order! Worldwide shipping
-                available.
+              <!-- Headline / Offer -->
+              <p class="text-xl md:text-2xl text-headings mb-6 leading-relaxed">
+                Get
+                <span class="font-bold text-primary">30% Welcome Bonus</span> on
+                your first order! Worldwide shipping available.
               </p>
 
-              <div class="flex flex-col justify-end sm:flex-row gap-4">
+              <!-- CTA Buttons -->
+              <div
+                class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              >
+                <!-- Primary Button -->
                 <button
-                  class="bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-opacity-90 transition shadow-md hover:shadow-lg flex items-center justify-center"
+                  class="bg-primary text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-primary/90 transition-colors duration-300 ease-out"
                 >
                   <span>Shop Now</span>
-                  <i class="fas fa-arrow-right ml-2"></i>
+                  <i class="fas fa-arrow-right"></i>
                 </button>
+
+                <!-- Secondary Button -->
                 <button
-                  class="bg-white text-primary border border-primary px-8 py-4 rounded-full font-semibold hover:bg-primary hover:text-white transition flex items-center justify-center"
+                  class="bg-white text-primary border-2 border-primary px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-primary hover:text-white transition-colors duration-300 ease-out"
                 >
                   <span>Learn More</span>
-                  <i class="fas fa-question-circle ml-2"></i>
+                  <i class="fas fa-question-circle"></i>
                 </button>
               </div>
 
-              <div class="mt-8 flex items-center text-gray-500">
+              <!-- Social Proof -->
+              <div
+                class="mt-8 flex items-center justify-center lg:justify-start text-gray-500"
+              >
                 <div class="flex -space-x-3 mr-4">
                   <div
                     class="w-8 h-8 rounded-full border-2 border-white bg-purple-500"
@@ -277,7 +301,9 @@
                     class="w-8 h-8 rounded-full border-2 border-white bg-green-500"
                   ></div>
                 </div>
-                <p class="text-sm">Join 10k+ satisfied customers worldwide</p>
+                <p class="text-sm">
+                  Join <strong>10k+</strong> happy customers on Tijaar
+                </p>
               </div>
             </div>
           </div>
@@ -285,9 +311,10 @@
       </div>
     </section>
 
-    <!-- Category -->
+    <!-- Category Section -->
     <section class="w-full px-4 md:px-7 mt-16 mb-10">
       <div class="max-w-6xl mx-auto">
+        <!-- Heading -->
         <div class="text-center mb-10">
           <h2
             class="text-3xl md:text-4xl font-bold text-headings font-heading mb-4"
@@ -300,174 +327,180 @@
           </p>
         </div>
 
+        <!-- Categories Grid -->
         <div
           class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 md:gap-6"
         >
           <!-- Category 1 -->
-          <div
-            class="group bg-white rounded-xl p-5 text-center shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-primary hover:border-opacity-30 transform hover:-translate-y-1"
+          <article
+            class="group bg-white rounded-xl p-5 text-center hover:shadow-md cursor-pointer transition duration-300"
           >
             <div
-              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary group-hover:bg-opacity-10 transition-colors duration-300"
+              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary/10 transition-colors duration-300"
             >
               <i
                 class="fas fa-utensils text-primary text-2xl group-hover:scale-110 transition-transform duration-300"
               ></i>
             </div>
-            <p class="text-headings font-medium text-sm md:text-base">
+            <h3 class="text-headings font-medium text-sm md:text-base">
               Kitchenware
-            </p>
+            </h3>
             <span class="text-xs text-gray-500 mt-1 block">42 products</span>
-          </div>
+          </article>
 
           <!-- Category 2 -->
-          <div
-            class="group bg-white rounded-xl p-5 text-center shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-primary hover:border-opacity-30 transform hover:-translate-y-1"
+          <article
+            class="group bg-white rounded-xl p-5 text-center hover:shadow-md cursor-pointer transition duration-300"
           >
             <div
-              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary group-hover:bg-opacity-10 transition-colors duration-300"
+              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary/10 transition-colors duration-300"
             >
               <i
                 class="fas fa-couch text-primary text-2xl group-hover:scale-110 transition-transform duration-300"
               ></i>
             </div>
-            <p class="text-headings font-medium text-sm md:text-base">
+            <h3 class="text-headings font-medium text-sm md:text-base">
               Furniture
-            </p>
+            </h3>
             <span class="text-xs text-gray-500 mt-1 block">35 products</span>
-          </div>
+          </article>
 
           <!-- Category 3 -->
-          <div
-            class="group bg-white rounded-xl p-5 text-center shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-primary hover:border-opacity-30 transform hover:-translate-y-1"
+          <article
+            class="group bg-white rounded-xl p-5 text-center hover:shadow-md cursor-pointer transition duration-300"
           >
             <div
-              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary group-hover:bg-opacity-10 transition-colors duration-300"
+              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary/10 transition-colors duration-300"
             >
               <i
                 class="fas fa-blender text-primary text-2xl group-hover:scale-110 transition-transform duration-300"
               ></i>
             </div>
-            <p class="text-headings font-medium text-sm md:text-base">
+            <h3 class="text-headings font-medium text-sm md:text-base">
               Appliances
-            </p>
+            </h3>
             <span class="text-xs text-gray-500 mt-1 block">28 products</span>
-          </div>
+          </article>
 
           <!-- Category 4 -->
-          <div
-            class="group bg-white rounded-xl p-5 text-center shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-primary hover:border-opacity-30 transform hover:-translate-y-1"
+          <article
+            class="group bg-white rounded-xl p-5 text-center hover:shadow-md cursor-pointer transition duration-300"
           >
             <div
-              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary group-hover:bg-opacity-10 transition-colors duration-300"
+              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary/10 transition-colors duration-300"
             >
               <i
                 class="fas fa-tshirt text-primary text-2xl group-hover:scale-110 transition-transform duration-300"
               ></i>
             </div>
-            <p class="text-headings font-medium text-sm md:text-base">
+            <h3 class="text-headings font-medium text-sm md:text-base">
               Home Textiles
-            </p>
+            </h3>
             <span class="text-xs text-gray-500 mt-1 block">51 products</span>
-          </div>
+          </article>
 
           <!-- Category 5 -->
-          <div
-            class="group bg-white rounded-xl p-5 text-center shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-primary hover:border-opacity-30 transform hover:-translate-y-1"
+          <article
+            class="group bg-white rounded-xl p-5 text-center hover:shadow-md cursor-pointer transition duration-300"
           >
             <div
-              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary group-hover:bg-opacity-10 transition-colors duration-300"
+              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary/10 transition-colors duration-300"
             >
               <i
                 class="fas fa-broom text-primary text-2xl group-hover:scale-110 transition-transform duration-300"
               ></i>
             </div>
-            <p class="text-headings font-medium text-sm md:text-base">
+            <h3 class="text-headings font-medium text-sm md:text-base">
               Cleaning
-            </p>
+            </h3>
             <span class="text-xs text-gray-500 mt-1 block">39 products</span>
-          </div>
+          </article>
 
           <!-- Category 6 -->
-          <div
-            class="group bg-white rounded-xl p-5 text-center shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-primary hover:border-opacity-30 transform hover:-translate-y-1"
+          <article
+            class="group bg-white rounded-xl p-5 text-center hover:shadow-md cursor-pointer transition duration-300"
           >
             <div
-              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary group-hover:bg-opacity-10 transition-colors duration-300"
+              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary/10 transition-colors duration-300"
             >
               <i
                 class="fas fa-lightbulb text-primary text-2xl group-hover:scale-110 transition-transform duration-300"
               ></i>
             </div>
-            <p class="text-headings font-medium text-sm md:text-base">
+            <h3 class="text-headings font-medium text-sm md:text-base">
               Lighting
-            </p>
+            </h3>
             <span class="text-xs text-gray-500 mt-1 block">24 products</span>
-          </div>
+          </article>
 
           <!-- Category 7 -->
-          <div
-            class="group bg-white rounded-xl p-5 text-center shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-primary hover:border-opacity-30 transform hover:-translate-y-1"
+          <article
+            class="group bg-white rounded-xl p-5 text-center hover:shadow-md cursor-pointer transition duration-300"
           >
             <div
-              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary group-hover:bg-opacity-10 transition-colors duration-300"
+              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary/10 transition-colors duration-300"
             >
               <i
                 class="fas fa-toolbox text-primary text-2xl group-hover:scale-110 transition-transform duration-300"
               ></i>
             </div>
-            <p class="text-headings font-medium text-sm md:text-base">Tools</p>
+            <h3 class="text-headings font-medium text-sm md:text-base">
+              Tools
+            </h3>
             <span class="text-xs text-gray-500 mt-1 block">31 products</span>
-          </div>
+          </article>
 
           <!-- Category 8 -->
-          <div
-            class="group bg-white rounded-xl p-5 text-center shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-primary hover:border-opacity-30 transform hover:-translate-y-1"
+          <article
+            class="group bg-white rounded-xl p-5 text-center hover:shadow-md cursor-pointer transition duration-300"
           >
             <div
-              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary group-hover:bg-opacity-10 transition-colors duration-300"
+              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary/10 transition-colors duration-300"
             >
               <i
                 class="fas fa-shower text-primary text-2xl group-hover:scale-110 transition-transform duration-300"
               ></i>
             </div>
-            <p class="text-headings font-medium text-sm md:text-base">Bath</p>
+            <h3 class="text-headings font-medium text-sm md:text-base">Bath</h3>
             <span class="text-xs text-gray-500 mt-1 block">47 products</span>
-          </div>
+          </article>
 
           <!-- Category 9 -->
-          <div
-            class="group bg-white rounded-xl p-5 text-center shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-primary hover:border-opacity-30 transform hover:-translate-y-1"
+          <article
+            class="group bg-white rounded-xl p-5 text-center hover:shadow-md cursor-pointer transition duration-300"
           >
             <div
-              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary group-hover:bg-opacity-10 transition-colors duration-300"
+              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary/10 transition-colors duration-300"
             >
               <i
                 class="fas fa-seedling text-primary text-2xl group-hover:scale-110 transition-transform duration-300"
               ></i>
             </div>
-            <p class="text-headings font-medium text-sm md:text-base">Garden</p>
+            <h3 class="text-headings font-medium text-sm md:text-base">
+              Garden
+            </h3>
             <span class="text-xs text-gray-500 mt-1 block">33 products</span>
-          </div>
+          </article>
 
           <!-- Category 10 -->
-          <div
-            class="group bg-white rounded-xl p-5 text-center shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-primary hover:border-opacity-30 transform hover:-translate-y-1"
+          <article
+            class="group bg-white rounded-xl p-5 text-center hover:shadow-md cursor-pointer transition duration-300"
           >
             <div
-              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary group-hover:bg-opacity-10 transition-colors duration-300"
+              class="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center mb-3 group-hover:bg-primary/10 transition-colors duration-300"
             >
               <i
                 class="fas fa-warehouse text-primary text-2xl group-hover:scale-110 transition-transform duration-300"
               ></i>
             </div>
-            <p class="text-headings font-medium text-sm md:text-base">
+            <h3 class="text-headings font-medium text-sm md:text-base">
               Storage
-            </p>
+            </h3>
             <span class="text-xs text-gray-500 mt-1 block">29 products</span>
-          </div>
+          </article>
         </div>
 
+        <!-- View All Button -->
         <div class="text-center mt-12">
           <button
             class="bg-white text-primary border border-primary px-8 py-3 rounded-full font-semibold hover:bg-primary hover:text-white transition flex items-center justify-center mx-auto"
@@ -479,9 +512,10 @@
       </div>
     </section>
 
-    <!-- Featured Products -->
+    <!-- Featured Products Section -->
     <section class="w-full px-4 md:px-7 mt-16 mb-12">
       <div class="max-w-6xl mx-auto">
+        <!-- Section Header -->
         <div
           class="flex flex-col md:flex-row items-start md:items-center justify-between mb-8"
         >
@@ -506,20 +540,20 @@
           </a>
         </div>
 
+        <!-- Featured Products Grid -->
         <div
           class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8"
         >
           <!-- Product 1 -->
           <div
-            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100"
+            class="bg-white rounded-xl overflow-hidden hover:shadow-md transition-all duration-300 group"
           >
             <div
               class="relative h-52 bg-gradient-to-br from-background to-background-200 flex items-center justify-center p-4"
             >
               <img
                 src="images/featured/chair.png"
-                loading="lazy"
-                alt="Library Chair"
+                alt="Chair Image"
                 class="max-h-40 group-hover:scale-105 transition-transform duration-300"
               />
               <div
@@ -557,7 +591,7 @@
               </div>
               <button
                 class="mt-4 bg-primary text-white w-full py-3 rounded-lg hover:bg-primary-dark transition flex items-center justify-center add-to-cart"
-                data-product="Premium Cookware Set"
+                data-product="Library Chair"
                 data-price="4999"
               >
                 <i class="fas fa-shopping-cart mr-2"></i>
@@ -568,15 +602,14 @@
 
           <!-- Product 2 -->
           <div
-            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100"
+            class="bg-white rounded-xl overflow-hidden hover:shadow-md transition-all duration-300 group"
           >
             <div
               class="relative h-52 bg-gradient-to-br from-background to-background-200 flex items-center justify-center p-4"
             >
               <img
                 src="images/featured/fruits.png"
-                loading="lazy"
-                alt="Fruits"
+                alt="Fruits Image"
                 class="max-h-40 group-hover:scale-105 transition-transform duration-300"
               />
               <button
@@ -587,15 +620,13 @@
             </div>
             <div class="p-5">
               <h3 class="font-semibold text-headings text-lg mb-1">
-                Qaulity Fruits
+                Quality Fruits
               </h3>
               <div class="flex items-center mb-2">
                 <div class="flex text-yellow-400">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="far fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="far fa-star"></i>
                 </div>
                 <span class="text-xs text-gray-500 ml-2">(94)</span>
               </div>
@@ -609,7 +640,7 @@
               </div>
               <button
                 class="mt-4 bg-primary text-white w-full py-3 rounded-lg hover:bg-primary-dark transition flex items-center justify-center add-to-cart"
-                data-product="Smart Blender"
+                data-product="Quality Fruits"
                 data-price="2499"
               >
                 <i class="fas fa-shopping-cart mr-2"></i>
@@ -620,15 +651,14 @@
 
           <!-- Product 3 -->
           <div
-            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100"
+            class="bg-white rounded-xl overflow-hidden hover:shadow-md transition-all duration-300 group"
           >
             <div
               class="relative h-52 bg-gradient-to-br from-background to-background-200 flex items-center justify-center p-4"
             >
               <img
                 src="images/featured/bed.png"
-                loading="lazy"
-                alt="Wooden Bed"
+                alt="Bed Image"
                 class="max-h-40 group-hover:scale-105 transition-transform duration-300"
               />
               <div
@@ -648,11 +678,9 @@
               </h3>
               <div class="flex items-center mb-2">
                 <div class="flex text-yellow-400">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i>
                 </div>
                 <span class="text-xs text-gray-500 ml-2">(215)</span>
               </div>
@@ -666,7 +694,7 @@
               </div>
               <button
                 class="mt-4 bg-primary text-white w-full py-3 rounded-lg hover:bg-primary-dark transition flex items-center justify-center add-to-cart"
-                data-product="Luxury Bed Sheets"
+                data-product="Wooden Bed"
                 data-price="1799"
               >
                 <i class="fas fa-shopping-cart mr-2"></i>
@@ -677,15 +705,14 @@
 
           <!-- Product 4 -->
           <div
-            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100"
+            class="bg-white rounded-xl overflow-hidden hover:shadow-md transition-all duration-300 group"
           >
             <div
               class="relative h-52 bg-gradient-to-br from-background to-background-200 flex items-center justify-center p-4"
             >
               <img
                 src="images/featured/vacuum.png"
-                loading="lazy"
-                alt="Robot Vacuum"
+                alt="Vacuum Image"
                 class="max-h-40 group-hover:scale-105 transition-transform duration-300"
               />
               <button
@@ -700,11 +727,9 @@
               </h3>
               <div class="flex items-center mb-2">
                 <div class="flex text-yellow-400">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star-half-alt"></i>
                 </div>
                 <span class="text-xs text-gray-500 ml-2">(167)</span>
               </div>
@@ -730,9 +755,10 @@
       </div>
     </section>
 
-    <!-- Top Electronics -->
+    <!-- Top Electronics Section -->
     <section class="w-full px-4 md:px-7 mt-16 mb-12">
       <div class="max-w-6xl mx-auto">
+        <!-- Section Header -->
         <div
           class="flex flex-col md:flex-row items-start md:items-center justify-between mb-8"
         >
@@ -757,12 +783,13 @@
           </a>
         </div>
 
+        <!-- Electronics Grid -->
         <div
           class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8"
         >
-          <!-- Electronic 1 -->
+          <!-- Product 1 -->
           <div
-            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100"
+            class="bg-white rounded-xl overflow-hidden hover:shadow-md transition-all duration-300 group"
           >
             <div
               class="relative h-52 bg-gradient-to-br from-background to-background-200 flex items-center justify-center p-4"
@@ -816,9 +843,9 @@
             </div>
           </div>
 
-          <!-- Electronic 2 -->
+          <!-- Product 2 -->
           <div
-            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100"
+            class="bg-white rounded-xl overflow-hidden hover:shadow-md transition-all duration-300 group"
           >
             <div
               class="relative h-52 bg-gradient-to-br from-background to-background-200 flex items-center justify-center p-4"
@@ -840,11 +867,9 @@
               </h3>
               <div class="flex items-center mb-2">
                 <div class="flex text-yellow-400">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="far fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="far fa-star"></i>
                 </div>
                 <span class="text-xs text-gray-500 ml-2">(89)</span>
               </div>
@@ -867,9 +892,9 @@
             </div>
           </div>
 
-          <!-- Electronic 3 -->
+          <!-- Product 3 -->
           <div
-            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100"
+            class="bg-white rounded-xl overflow-hidden hover:shadow-md transition-all duration-300 group"
           >
             <div
               class="relative h-52 bg-gradient-to-br from-background to-background-200 flex items-center justify-center p-4"
@@ -896,11 +921,9 @@
               </h3>
               <div class="flex items-center mb-2">
                 <div class="flex text-yellow-400">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i>
                 </div>
                 <span class="text-xs text-gray-500 ml-2">(205)</span>
               </div>
@@ -923,9 +946,9 @@
             </div>
           </div>
 
-          <!-- Electronic 4 -->
+          <!-- Product 4 -->
           <div
-            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100"
+            class="bg-white rounded-xl overflow-hidden hover:shadow-md transition-all duration-300 group"
           >
             <div
               class="relative h-52 bg-gradient-to-br from-background to-background-200 flex items-center justify-center p-4"
@@ -947,11 +970,9 @@
               </h3>
               <div class="flex items-center mb-2">
                 <div class="flex text-yellow-400">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star-half-alt"></i>
                 </div>
                 <span class="text-xs text-gray-500 ml-2">(178)</span>
               </div>
@@ -980,6 +1001,7 @@
     <!-- Home Decor -->
     <section class="w-full px-4 md:px-7 mt-16 mb-12">
       <div class="max-w-6xl mx-auto">
+        <!-- Section Header -->
         <div
           class="flex flex-col md:flex-row items-start md:items-center justify-between mb-8"
         >
@@ -1004,22 +1026,27 @@
           </a>
         </div>
 
+        <!-- Products Grid -->
         <div
           class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 md:gap-8"
         >
-          <!-- Decor 1 -->
-          <div class="circle-card">
-            <div class="circle-image">
-              <img src="images/decor/art.png" alt="Wall Art" />
+          <!-- Product 1 -->
+          <div class="flex flex-col items-center text-center group">
+            <div
+              class="w-36 h-36 rounded-full overflow-hidden mb-4 border-2 border-secondary group-hover:border-primary transition-transform"
+            >
+              <img
+                src="images/decor/art.png"
+                alt="Wall Art"
+                class="w-full h-full object-cover"
+              />
             </div>
             <h3 class="font-semibold text-headings text-lg mb-1">Wall Art</h3>
             <div class="flex items-center mb-2">
               <div class="flex text-yellow-400 text-sm">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star-half-alt"></i>
               </div>
               <span class="text-xs text-gray-500 ml-2">(87)</span>
             </div>
@@ -1028,27 +1055,30 @@
               <span class="text-gray-500 line-through text-sm ml-2">1,899</span>
             </div>
             <button
-              class="mt-3 bg-primary text-white px-4 py-2 rounded-lg text-sm hover:bg-primary-dark transition add-to-cart"
-              data-product="Wall Art"
-              data-price="1299"
+              class="mt-3 bg-primary text-white px-4 py-2 rounded-lg text-sm hover:bg-primary-dark transition"
             >
-              Add to Cart
+              <i class="fas fa-shopping-cart mr-2"></i>Add to Cart
             </button>
           </div>
 
-          <!-- Decor 2 -->
-          <div class="circle-card">
-            <div class="circle-image">
-              <img src="images/decor/vases.png" loading="lazy" alt="Vases" />
+          <!-- Product 2 -->
+          <div class="flex flex-col items-center text-center group">
+            <div
+              class="w-36 h-36 rounded-full overflow-hidden mb-4 border-2 border-secondary group-hover:border-primary transition-transform"
+            >
+              <img
+                src="images/decor/vases.png"
+                loading="lazy"
+                alt="Vases"
+                class="w-full h-full object-cover"
+              />
             </div>
             <h3 class="font-semibold text-headings text-lg mb-1">Vases</h3>
             <div class="flex items-center mb-2">
               <div class="flex text-yellow-400 text-sm">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="far fa-star"></i>
               </div>
               <span class="text-xs text-gray-500 ml-2">(64)</span>
             </div>
@@ -1057,31 +1087,30 @@
               <span class="text-gray-500 line-through text-sm ml-2">1,299</span>
             </div>
             <button
-              class="mt-3 bg-primary text-white px-4 py-2 rounded-lg text-sm hover:bg-primary-dark transition add-to-cart"
-              data-product="Decorative Vases"
-              data-price="899"
+              class="mt-3 bg-primary text-white px-4 py-2 rounded-lg text-sm hover:bg-primary-dark transition"
             >
-              Add to Cart
+              <i class="fas fa-shopping-cart mr-2"></i>Add to Cart
             </button>
           </div>
 
-          <!-- Decor 3 -->
-          <div class="circle-card">
-            <div class="circle-image">
+          <!-- Product 3 -->
+          <div class="flex flex-col items-center text-center group">
+            <div
+              class="w-36 h-36 rounded-full overflow-hidden mb-4 border-2 border-secondary group-hover:border-primary transition-transform"
+            >
               <img
                 src="images/decor/cushions.png"
                 loading="lazy"
-                alt=" Cushions"
+                alt="Cushions"
+                class="w-full h-full object-cover"
               />
             </div>
             <h3 class="font-semibold text-headings text-lg mb-1">Cushions</h3>
             <div class="flex items-center mb-2">
               <div class="flex text-yellow-400 text-sm">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
               </div>
               <span class="text-xs text-gray-500 ml-2">(112)</span>
             </div>
@@ -1090,21 +1119,22 @@
               <span class="text-gray-500 line-through text-sm ml-2">799</span>
             </div>
             <button
-              class="mt-3 bg-primary text-white px-4 py-2 rounded-lg text-sm hover:bg-primary-dark transition add-to-cart"
-              data-product="Decorative Cushions"
-              data-price="499"
+              class="mt-3 bg-primary text-white px-4 py-2 rounded-lg text-sm hover:bg-primary-dark transition"
             >
-              Add to Cart
+              <i class="fas fa-shopping-cart mr-2"></i>Add to Cart
             </button>
           </div>
 
-          <!-- Decor 4 -->
-          <div class="circle-card">
-            <div class="circle-image">
+          <!-- Product 4 -->
+          <div class="flex flex-col items-center text-center group">
+            <div
+              class="w-36 h-36 rounded-full overflow-hidden mb-4 border-2 border-secondary group-hover:border-primary transition-transform"
+            >
               <img
                 src="images/decor/candle.png"
                 loading="lazy"
                 alt="Scented Candles"
+                class="w-full h-full object-cover"
               />
             </div>
             <h3 class="font-semibold text-headings text-lg mb-1">
@@ -1112,11 +1142,9 @@
             </h3>
             <div class="flex items-center mb-2">
               <div class="flex text-yellow-400 text-sm">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star-half-alt"></i>
               </div>
               <span class="text-xs text-gray-500 ml-2">(93)</span>
             </div>
@@ -1125,27 +1153,30 @@
               <span class="text-gray-500 line-through text-sm ml-2">599</span>
             </div>
             <button
-              class="mt-3 bg-primary text-white px-4 py-2 rounded-lg text-sm hover:bg-primary-dark transition add-to-cart"
-              data-product="Scented Candles"
-              data-price="349"
+              class="mt-3 bg-primary text-white px-4 py-2 rounded-lg text-sm hover:bg-primary-dark transition"
             >
-              Add to Cart
+              <i class="fas fa-shopping-cart mr-2"></i>Add to Cart
             </button>
           </div>
 
-          <!-- Decor 5 -->
-          <div class="circle-card">
-            <div class="circle-image">
-              <img src="images/decor/mirror.png" loading="lazy" alt="Mirrors" />
+          <!-- Product 5 -->
+          <div class="flex flex-col items-center text-center group">
+            <div
+              class="w-36 h-36 rounded-full overflow-hidden mb-4 border-2 border-secondary group-hover:border-primary transition-transform"
+            >
+              <img
+                src="images/decor/mirror.png"
+                loading="lazy"
+                alt="Mirrors"
+                class="w-full h-full object-cover"
+              />
             </div>
             <h3 class="font-semibold text-headings text-lg mb-1">Mirrors</h3>
             <div class="flex items-center mb-2">
               <div class="flex text-yellow-400 text-sm">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="far fa-star"></i>
               </div>
               <span class="text-xs text-gray-500 ml-2">(71)</span>
             </div>
@@ -1154,11 +1185,9 @@
               <span class="text-gray-500 line-through text-sm ml-2">2,999</span>
             </div>
             <button
-              class="mt-3 bg-primary text-white px-4 py-2 rounded-lg text-sm hover:bg-primary-dark transition add-to-cart"
-              data-product="Decorative Mirrors"
-              data-price="2199"
+              class="mt-3 bg-primary text-white px-4 py-2 rounded-lg text-sm hover:bg-primary-dark transition"
             >
-              Add to Cart
+              <i class="fas fa-shopping-cart mr-2"></i>Add to Cart
             </button>
           </div>
         </div>
@@ -1183,7 +1212,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Customer 1 -->
           <div
-            class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 group"
+            class="bg-white rounded-xl hover:shadow-md transition-all duration-300 p-6 group"
           >
             <div class="flex items-center mb-5">
               <div
@@ -1222,7 +1251,7 @@
 
           <!-- Customer 2 -->
           <div
-            class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 group"
+            class="bg-white rounded-xl hover:shadow-md transition-all duration-300 p-6 group"
           >
             <div class="flex items-center mb-5">
               <div
@@ -1260,7 +1289,7 @@
 
           <!-- Customer 3 -->
           <div
-            class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 group"
+            class="bg-white rounded-xl hover:shadow-md transition-all duration-300 p-6 group"
           >
             <div class="flex items-center mb-5">
               <div
@@ -1299,86 +1328,53 @@
 
         <!-- Stats Section -->
         <div
-          class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 bg-white rounded-2xl p-8 shadow-lg border border-secondary"
+          class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 bg-white rounded-2xl p-8"
         >
-          <div
-            class="text-center group transform transition-all duration-300 hover:scale-105 hover:-translate-y-1"
-          >
-            <div
-              class="text-3xl md:text-4xl font-bold text-primary mb-2 transition-colors duration-300 group-hover:text-primary-dark"
-            >
+          <div class="text-center group">
+            <div class="text-3xl md:text-4xl font-bold text-primary mb-2">
               10K+
             </div>
-            <p
-              class="text-gray-600 font-medium transition-colors duration-300 group-hover:text-headings"
-            >
-              Happy Customers
-            </p>
+            <p class="text-gray-600 font-medium">Happy Customers</p>
             <div
-              class="mt-2 w-12 h-1 bg-primary rounded-full mx-auto transition-all duration-300 group-hover:w-16 group-hover:bg-primary-dark"
+              class="mt-2 w-12 h-1 bg-primary rounded-full mx-auto transition-all duration-300 group-hover:w-16"
             ></div>
           </div>
-          <div
-            class="text-center group transform transition-all duration-300 hover:scale-105 hover:-translate-y-1"
-          >
-            <div
-              class="text-3xl md:text-4xl font-bold text-primary mb-2 transition-colors duration-300 group-hover:text-primary-dark"
-            >
+
+          <div class="text-center group">
+            <div class="text-3xl md:text-4xl font-bold text-primary mb-2">
               4.8/5
             </div>
-            <p
-              class="text-gray-600 font-medium transition-colors duration-300 group-hover:text-headings"
-            >
-              Average Rating
-            </p>
+            <p class="text-gray-600 font-medium">Average Rating</p>
             <div
-              class="mt-2 w-12 h-1 bg-primary rounded-full mx-auto transition-all duration-300 group-hover:w-16 group-hover:bg-primary-dark"
+              class="mt-2 w-12 h-1 bg-primary rounded-full mx-auto transition-all duration-300 group-hover:w-16"
             ></div>
           </div>
-          <div
-            class="text-center group transform transition-all duration-300 hover:scale-105 hover:-translate-y-1"
-          >
-            <div
-              class="text-3xl md:text-4xl font-bold text-primary mb-2 transition-colors duration-300 group-hover:text-primary-dark"
-            >
+          <div class="text-center group">
+            <div class="text-3xl md:text-4xl font-bold text-primary mb-2">
               50+
             </div>
-            <p
-              class="text-gray-600 font-medium transition-colors duration-300 group-hover:text-headings"
-            >
-              Cities Served
-            </p>
+            <p class="text-gray-600 font-medium">Cities Served</p>
             <div
-              class="mt-2 w-12 h-1 bg-primary rounded-full mx-auto transition-all duration-300 group-hover:w-16 group-hover:bg-primary-dark"
+              class="mt-2 w-12 h-1 bg-primary rounded-full mx-auto transition-all duration-300 group-hover:w-16"
             ></div>
           </div>
-          <div
-            class="text-center group transform transition-all duration-300 hover:scale-105 hover:-translate-y-1"
-          >
-            <div
-              class="text-3xl md:text-4xl font-bold text-primary mb-2 transition-colors duration-300 group-hover:text-primary-dark"
-            >
+          <div class="text-center group">
+            <div class="text-3xl md:text-4xl font-bold text-primary mb-2">
               98%
             </div>
-            <p
-              class="text-gray-600 font-medium transition-colors duration-300 group-hover:text-headings"
-            >
-              Refer Us
-            </p>
+            <p class="text-gray-600 font-medium">Refer Us</p>
             <div
-              class="mt-2 w-12 h-1 bg-primary rounded-full mx-auto transition-all duration-300 group-hover:w-16 group-hover:bg-primary-dark"
+              class="mt-2 w-12 h-1 bg-primary rounded-full mx-auto transition-all duration-300 group-hover:w-16"
             ></div>
           </div>
         </div>
 
         <div class="flex justify-center mt-12">
           <button
-            class="bg-white text-primary border-2 border-primary px-8 py-3 rounded-full font-semibold hover:bg-primary hover:text-white transition flex items-center justify-center group"
+            class="bg-white text-primary border border-primary px-8 py-3 rounded-full font-semibold hover:bg-primary hover:text-white transition flex items-center justify-center mx-auto"
           >
             <span>Read More Reviews</span>
-            <i
-              class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"
-            ></i>
+            <i class="fas fa-chevron-down ml-2"></i>
           </button>
         </div>
       </div>
@@ -1399,7 +1395,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <!-- Feature 1 -->
           <div
-            class="feature-card bg-white p-6 rounded-lg text-center shadow-sm"
+            class="feature-card bg-white p-6 rounded-lg text-center hover:shadow-md"
           >
             <div
               class="w-16 h-16 mx-auto bg-primary rounded-full flex items-center justify-center mb-4"
@@ -1415,7 +1411,7 @@
 
           <!-- Feature 2 -->
           <div
-            class="feature-card bg-white p-6 rounded-lg text-center shadow-sm"
+            class="feature-card bg-white p-6 rounded-lg text-center hover:shadow-md"
           >
             <div
               class="w-16 h-16 mx-auto bg-primary rounded-full flex items-center justify-center mb-4"
@@ -1431,7 +1427,7 @@
 
           <!-- Feature 3 -->
           <div
-            class="feature-card bg-white p-6 rounded-lg text-center shadow-sm"
+            class="feature-card bg-white p-6 rounded-lg text-center hover:shadow-md"
           >
             <div
               class="w-16 h-16 mx-auto bg-primary rounded-full flex items-center justify-center mb-4"
@@ -1447,7 +1443,7 @@
 
           <!-- Feature 4 -->
           <div
-            class="feature-card bg-white p-6 rounded-lg text-center shadow-sm"
+            class="feature-card bg-white p-6 rounded-lg text-center hover:shadow-md"
           >
             <div
               class="w-16 h-16 mx-auto bg-primary rounded-full flex items-center justify-center mb-4"
@@ -1484,7 +1480,7 @@
             <h2
               class="text-3xl md:text-4xl font-bold font-heading mb-4 text-white"
             >
-              Summer Sale - Up to 30% Off!
+              Summer Sale - Up to <span class="text-yellow-300">30% Off!</span>
             </h2>
             <p class="text-lg mb-6 text-white text-opacity-90">
               Transform your home with premium essentials. Special prices ending
@@ -1551,9 +1547,6 @@
           <!-- Image Section -->
           <div class="md:w-1/3 flex items-center justify-center p-6">
             <div class="relative">
-              <div
-                class="absolute -inset-4 bg-white bg-opacity-20 rounded-2xl blur-lg"
-              ></div>
               <img
                 src="images/offer.png"
                 alt="Special Offer"
@@ -1837,7 +1830,7 @@
         >
           <p class="text-white text-opacity-80 text-sm">
             &copy; 2023 Tijaar. All rights reserved. Designed with
-            <i class="fas fa-heart text-red-400"></i> for your home
+            <i class="fas fa-heart text-red-900"></i> for your home
           </p>
         </div>
       </div>
